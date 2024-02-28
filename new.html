@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            // Include header
+            $('#navbar').load('utils/navbar.html');
+            // Include footer
+            $('#footer').load('utils/footer.html');
+        });
+    </script> -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/css/rating.css" /> -->
+  </head>
+  <body>
+    
+    <!-- <nav class="navbar"> -->
+        <!-- Navbar content -->
+        <!-- <div id="navbar"></div> -->
+    <!-- </nav> -->
+    
+    <style>
+      .search-btn {
+        background-color: #fe424d;
+        color: white;
+        border-radius: 25px;
+        padding: 0 1rem 0 1rem;
+      }
+      .search-btn:hover {
+        background-color: #fe424d;
+        color: white;
+      }
+      .search-btn i {
+        display: inline;
+        margin-right: 0.5rem;
+      }
+
+      .search-inp {
+        border-radius: 25px;
+        padding: 0.5rem 3rem 0.5rem 3rem;
+        font-size: 1rem;
+      }
+    </style>
+
+  <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="mainpage.html"
+          ><i class="fa-regular fa-compass"></i
+        ></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="mainpage.html">Explore</a>
+          </div>
+          <div class="navbar-nav ms-auto">
+            <!-- the search button  -->
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2 search-inp"
+                type="search"
+                placeholder="Search Destination"
+              />
+              <button class="btn search-btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>Search
+              </button>
+            </form>
+            
+          </div>
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="new.html">Airbnb your home</a>
+            <!-- here it is our signup login info on navbar  -->
+            <!-- this currUser is coming from our res.local session variable -->
+
+            <a class="nav-link" href="signUp.html"><b>Sign up</b></a>
+            <a class="nav-link" href="login.html"><b>Log in</b></a>
+
+            <a class="nav-link" href="/logout"><b>Log out</b></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row mt-3">
+        <div class="col-8 offset-2">
+          <br /><br /><br />
+          <h3>create a new listing</h3>
+          <form
+            
+            action="mainpage.html"
+            class="needs-validation"
+            novalidate
+            enctype="multipart/form-data"
+          >
+            <div class="mb-3">
+              <label for="title" class="form-lable">Title</label>
+              <input
+                type="text"
+                name="listing[title]"
+                placeholder="Add a catchy title"
+                class="form-control"
+                required
+              />
+              <!-- this line is a validation text inside the title div -->
+              <div class="valid-feedback">title looks good</div>
+              <!-- <div class="invalid-feedback">please enter correct title</div> -->
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-lable">Description</label>
+              <textarea
+                name="listing[description]"
+                cols="30"
+                rows="5"
+                class="form-control"
+                required
+              ></textarea>
+              <div class="invalid-feedback">please enter correct description</div>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-lable">Upload Image</label>
+              <input type="file" name="listing[image]" class="form-control" required/>
+              
+            </div>
+            <div class="row">
+              <div class="mb-3 col-md-4">
+                <label for="price" class="form-lable">Price</label>
+                <input
+                  name="listing[price]"
+                  placeholder="4000"
+                  class="form-control"
+                  required
+                />
+                <!-- the validation text line -->
+                <div class="invalid-feedback">price should be valid</div>
+              </div>
+              <div class="mb-3 col-md-8">
+                <label for="country" class="form-lable">Country</label>
+                <input
+                  type="text"
+                  name="listing[country]"
+                  placeholder="India"
+                  class="form-control"
+                  required
+                />
+                <div class="invalid-feedback">please enter correct country</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="location" class="form-lable">Location</label>
+              <input
+                type="text"
+                name="listing[location]"
+                placeholder="surendranagar, gujrat"
+                class="form-control"
+                required
+              />
+              <div class="invalid-feedback">please enter correct location</div>
+            </div>
+            <button class="btn btn-dark add-btn mt-3">Add</button>
+          </form>
+        </div>
+      </div>
+        </div>
+        <!-- <div id="footer"></div> -->
+
+        <footer>
+          <div class="f-info">
+            <div class="f-info-socials">
+              <i class="fa-brands fa-square-facebook"></i>
+              <i class="fa-brands fa-square-instagram"></i>
+              <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <div class="f-info-brand">&copy; theWeeknd Private limited</div>
+            <div class="f-info-links">
+              <a href="/privacy">Privacy</a>
+              <a href="/terms">Terms</a>
+            </div>
+          </div>
+        </footer>
+        
+  </body>
+</html>      
